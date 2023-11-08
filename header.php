@@ -183,22 +183,7 @@
                     <div class="row text-center">
                         <div class="col-12 fs-3 position-absolute p-2 ps-2 text-end"><i class="bi bi-x cursor" onclick="closesideMenu();"></i></div>
                         <div class="col-12 text-center pt-5 mt-2">
-                            <?php
-                            $user_P = Database::Search("SELECT * FROM `profile_image` WHERE `user_email`='" . $_SESSION["user"]["email"] . "' ");
-                            $user_p_num = $user_P->num_rows;
-
-                            if ($user_p_num != 0) {
-                                $user_P_data = $user_P->fetch_assoc();
-                            ?>
-                                <img src="<?php echo ($user_P_data["user_profile_path"]) ?>" class="profile_img">
-                            <?php
-                            } else {
-                            ?>
                                 <img src="resources/user_profile_img/userprofile.png" class="profile_img">
-                            <?php
-                            }
-
-                            ?>
                         </div>
                         <div class="fs-6 mt-3">
                         </div>
