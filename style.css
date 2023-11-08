@@ -1,0 +1,543 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+* {
+    font-family: "quick";
+    overflow-x: hidden;
+}
+
+.logo {
+    background-image: url("resources/logo.svg");
+    background-size: contain;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.logo1 {
+    background-image: url("resources/logo.svg");
+    background-size: contain;
+    height: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.logo_seller {
+    height: 150px;
+    background-image: url("resources/logo.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+}
+
+@font-face {
+    font-family: "brand";
+    src: url("fonts/brand-icons.eot");
+}
+
+@font-face {
+    font-family: "quick";
+    src: url("fonts/Quicksand-Medium.ttf");
+}
+
+.title_01 {
+    font-family: "brand";
+    font-weight: bold;
+    color: rgb(2, 32, 63);
+}
+
+.title_02 {
+    font-size: 50px;
+    font-family: "brand";
+    color: rgb(5, 41, 56);
+}
+
+.text_01 {
+    font-size: 13px;
+    position: absolute;
+}
+
+.background-decoration-01 {
+    background-color: rgb(230, 230, 230);
+}
+
+.background-decoration-02 {
+    background-image: url("resources/Live-Background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lorder {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(156, 150, 150, 0.3);
+    position: absolute;
+    position: fixed;
+    z-index: 10000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.logo2 {
+    background-image: url("resources/navlogo.png");
+    background-size: contain;
+    height: 65px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title_03 {
+    font-size: 15px;
+    font-family: "brand";
+    color: rgb(5, 41, 56);
+}
+
+.hover {
+    transition-duration: 1s;
+}
+
+.hover:hover {
+    cursor: pointer;
+    position: relative;
+    transform: translateY(-5px);
+    transition-duration: 1s;
+}
+
+.divwidth1 {
+    height: 0px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.wid {
+    width: 100%;
+    height: 500px;
+}
+
+.iconcolor {
+    background-color: rgb(229, 192, 147);
+    transition-duration: 0.5s;
+}
+
+.iconcolor:hover {
+    background-color: crimson;
+    color: white;
+    transition-duration: 0.5s;
+}
+
+.opcty {
+    background-color: cadetblue;
+}
+
+.searchinput {
+    width: 50%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    background-color: transparent;
+    padding: 2px;
+    padding-left: 5px;
+}
+
+.searchbar1 {
+    position: fixed;
+    transition-duration: 0.5s;
+    width: 100%;
+    height: fit-content;
+    margin-top: 50px;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: start;
+    top: -300px;
+}
+
+.searchbar2 {
+    position: fixed;
+    top: 0px;
+    transition-duration: 0.2s;
+    height: fit-content;
+    width: 100%;
+    margin-top: 20px;
+    padding-right: 10px;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: end;
+}
+
+.sub-search {
+    width: 98%;
+    display: flex;
+    justify-content: center;
+}
+
+.mainsearch {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchitems {
+    width: 90%;
+    height: fit-content;
+    background-color: rgb(254, 255, 242);
+    margin-top: 60px;
+    position: fixed;
+    border-radius: 8px;
+    box-shadow: 2px 2px 3px 0px rgb(229, 221, 221);
+}
+
+.sitemlist {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+
+.sitemlist:hover {
+    background-color: rgb(249, 241, 233);
+    cursor: pointer;
+}
+
+.namef {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "brand";
+    color: rgb(27, 144, 25);
+}
+
+.lettermargin {
+    background-color: transparent;
+    top: -18px;
+}
+
+.aclass {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.aclass2 {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.aclass2:hover {
+    color: rgb(255, 255, 255);
+}
+
+.aclass:hover {
+    color: rgb(0, 0, 0);
+}
+
+.outlinedisplay {
+    outline: none;
+    border: none;
+}
+
+.sidemain1 {
+    width: 25%;
+    height: 100vh;
+    background-color: rgb(237, 236, 234);
+    position: fixed;
+    right: -700px;
+    transition-duration: 1s;
+}
+
+.sidemain2 {
+    height: 100vh;
+    background-color: rgb(237, 236, 234);
+    position: fixed;
+    right: 0px;
+    transition-duration: 1s;
+}
+
+.profile_img {
+    background-size: contain;
+    height: 200px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.side-main-menu1 {
+    height: 100vh;
+    background-color: transparent;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    right: -500px;
+    transition-duration: 1s;
+}
+
+.side-main-menu2 {
+    height: 100vh;
+    background-color: transparent;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    right: 0px;
+    transition-duration: 1s;
+}
+
+.searchmainBox1 {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: -500px;
+    transition-duration: 1s;
+}
+
+.searchmainBox2 {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    transition-duration: 0.8s;
+}
+
+.crossbar {
+    right: 10px;
+    top: 10px;
+}
+
+.crossbar2 {
+    right: 0px;
+}
+
+.swiper {
+    width: 600px;
+    height: 300px;
+}
+
+.slideimg {
+    height: 585px;
+    width: 100%;
+}
+
+.filter1 {
+    position: fixed;
+    width: 50px;
+    left: -500px;
+    transition-duration: 1s;
+}
+
+.filter2 {
+    position: fixed;
+    width: 50px;
+    left: 0px;
+    transition-duration: 1s;
+}
+
+.upimg {
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.logoseller1 {
+    background-image: url("resources/logo.svg");
+    background-size: contain;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.invalid-field {
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+    margin-left: 30px;
+}
+
+.fiterSlidehidden {
+    left: -500px;
+    opacity: 0;
+    transition-duration: 1s;
+}
+
+.fiterSlideshow {
+    left: 0px;
+    opacity: 1;
+    transition-duration: 1s;
+}
+
+.sellerSubImg {
+    height: 250px;
+    background-image: url("resources/sellersub.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bgsellersub {
+    background-color: #E0DEE3;
+}
+
+.cardHover:hover {
+    position: relative;
+    border: 1px solid black;
+    transition-duration: 0.1s;
+}
+
+.sellerstorebg {
+    background-color: #dedede;
+}
+
+.slide_01_bg {
+    background-color: antiquewhite;
+}
+
+.slidebtn01_bg {
+    background-color: rgb(195, 194, 194);
+}
+
+.sellerProfilebg {
+    background-color: rgb(195, 254, 242);
+}
+
+.transition {
+    transition-duration: 0.5s;
+}
+
+.topHeigth {
+    height: 100px;
+}
+
+.scrollheigth {
+    height: 300px;
+}
+
+.searchFilter {
+    height: 89vh;
+    overflow: auto;
+}
+
+
+/* carousel */
+
+
+/* carousel */
+
+.p_img_hover:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.textcolor {
+    text-decoration: none;
+    color: rgb(255, 89, 0);
+    cursor: pointer;
+}
+
+.icon_hover_watchlist:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.cardHover:hover {
+    border: 1px solid salmon;
+}
+
+.bgcarousel {
+    background-color: rgb(255, 209, 181);
+}
+
+.dailyimg {
+    background-image: url("resources/dailyimg.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}
+
+.mainSuperimgdiv {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(30deg, rgb(238, 222, 225), rgb(229, 229, 245), rgb(232, 221, 221));
+}
+
+.divscrol {
+    width: 90%;
+    overflow-x: scroll;
+}
+
+.logo_invoice {
+    background-image: url("resources/logo.svg");
+    background-size: contain;
+    height: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.invoice_bg_notice_colour {
+    background-color: gainsboro;
+}
+
+.contactIMG {
+    width: 100%;
+    background-image: url("resources/ContactUs.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: grayscale(30%);
+    filter: brightness(0.6);
+}
+
+.userdesign {
+    width: 100%;
+    background-image: url("resources/userProfilePage.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(30%);
+    filter: brightness(0.6);
+}
+
+.iquiriesIMG {
+    width: 100%;
+    background-image: url("resources/inquires.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: grayscale(30%);
+    filter: brightness(0.6);
+}
+
+.aboutuscolour {
+    background-image: linear-gradient(30deg, rgb(167, 167, 235), rgb(151, 151, 208), rgb(139, 139, 232));
+}
+
+.hoverMSGcontact:hover {
+    background-color: #efe1e1;
+    font-weight: bold;
+    transition-duration: 0.2s;
+}
+
+.bgcolourcontact {
+    background-color: rgb(105, 195, 195);
+}
+
+.aclass3:hover {
+    color: rgb(169, 71, 1);
+}
