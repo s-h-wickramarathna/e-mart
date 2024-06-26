@@ -32,9 +32,9 @@
 
                             if (isset($_SESSION["user"])) {
                                 $in_msg = Database::Search("SELECT * FROM `inquiry` WHERE `in_from`='" . $_SESSION["user"]["email"] . "' AND `user_view_status`='2' ");
-                                 $in_msg_num = $in_msg->num_rows;
+                                $in_msg_num = $in_msg->num_rows;
                             }
-                            
+
 
                             ?>
 
@@ -43,7 +43,11 @@
 
                     <div class="col-3 pe-0 pe-lg-5">
                         <div class="row ">
-                            <div class="col-12 mt-4 text-center text-lg-end"><button type="button" class="btn btn-dark"><a href="index.php" class="aclass2">Home</a></button></div>
+                            <div class="col-12 mt-4 text-center text-lg-end">
+                                <button type="button" class="btn btn-dark">
+                                    <a href="index.php" class="aclass2">Home</a>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -177,7 +181,7 @@
                     <div class="row text-center">
                         <div class="col-12 fs-3 position-absolute p-2 ps-2 text-end"><i class="bi bi-x cursor" onclick="closesideMenu();"></i></div>
                         <div class="col-12 text-center pt-5 mt-2">
-                                <img src="resources/user_profile_img/userprofile.png" class="profile_img">
+                            <img src="resources/user_profile_img/userprofile.png" class="profile_img">
                         </div>
                         <div class="fs-6 mt-3">
                         </div>
@@ -197,7 +201,7 @@
 
             <!-- SideMenu Menu -->
 
-            <div class="sidemain1 col-8 col-md-6 col-lg-4 col-xl-3 shadow-lg" id="menuSideUp"style="z-index: 1000;">
+            <div class="sidemain1 col-8 col-md-6 col-lg-4 col-xl-3 shadow-lg" id="menuSideUp" style="z-index: 1000;">
                 <div class="row rounded-start shadow-lg bg-light">
                     <div class="col-12">
                         <i class="bi bi-x text-end fs-3 mt-1 position-absolute crossbar2 cursor me-3" onclick="upmenuClose();"></i>
@@ -225,13 +229,7 @@
                         <div class="row py-2 ps-1 py-md-0 ps-md-0 cursor">
                             <a href=""></a>
                             <div class="col-4 d-flex justify-content-end align-items-center"><i class="bi bi-envelope-paper-fill fs-5 cursor"></i></div>
-                            <div class="col-8 fw-bold d-flex justify-content-start align-items-center"><a href="inquery.php" class="aclass">Help & Report Us <?php
-                                                                                                                                                        if ($in_msg_num != 0) {
-                                                                                                                                                        ?>
-                                        <span class="badge text-bg-danger"><?php echo ($in_msg_num) ?></span></a>
-                            <?php
-                                                                                                                                                        }
-                            ?></div>
+                            <div class="col-8 fw-bold d-flex justify-content-start align-items-center"><a href="inquery.php" class="aclass">Help & Report Us </div>
                         </div>
                     </div>
                     <div class="col-12 p-md-2">

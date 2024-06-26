@@ -11,7 +11,7 @@ require "connection.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Emart || Manage Users ....</title>
+    <title>Emart || Manage Products ....</title>
 
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css">
@@ -143,7 +143,7 @@ require "connection.php";
                                                         $img[$i] = $image_data["p_path"];
                                                     }
                                                 }
-
+ 
                                                 ?>
                                                 <img src="<?php echo ($img[0]) ?>" onclick="veiwFullProductDetails(<?php echo ($product_data['id']) ?>);" class="rounded-circle" height="50px">
                                             </td>

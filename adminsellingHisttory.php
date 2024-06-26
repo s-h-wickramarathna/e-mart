@@ -95,7 +95,7 @@ require "connection.php";
                                         $user_rs = Database::Search("SELECT * FROM `user` WHERE `email`='" . $invoice_data["user_email"] . "' ");
                                         $user_data = $user_rs->fetch_assoc();
 
-
+ 
                                 ?>
                                         <tr>
                                             <th scope="row" class="bg-info text-white"><?php echo ($invoice_data["order_id"]); ?></th>

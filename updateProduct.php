@@ -40,14 +40,14 @@ if (isset($_GET["id"])) {
 
         <div class="container-fluid">
             <div class="row">
-
+ 
                 <div class="col-12 bg-light">
                     <div class="row mt-2 mb-1">
 
                         <div class="col-12 col-lg-4 bg-light">
                             <div class="row text-center">
-                                <div class="col-12"><img src="resources/user_profile_img/userprofile.png" height="200px"></div>
-                                <p class="fw-bold fs-4 text-black-50">Sarasavi.pvt.ltd</p>
+                                <div class="col-12"><img src="resources/logo.svg" height="200px"></div>
+                                <p class="fw-bold fs-4 text-black-50">Emart.pvt.ltd</p>
                             </div>
                         </div>
                         <div class="col-12 col-lg-8 mt-3">
@@ -56,7 +56,7 @@ if (isset($_GET["id"])) {
                                     <p class="fs-2 fw-bold">Update Or Delete Your Own Products ....</p>
                                 </div>
                                 <div class="col-12 text-center text-lg-start">
-                                    <p class="fs-5">iasf s jsfj sfdjls dsljdls sl jslfslkfjbsfsafs fs fs fhsf safh saj fsnf skfh skfn isfnksfn ksfn s fsfsf skfnskfnskf sknfsfb skfs fhsfhls fskaf hsja efu ef d fsdjfsdfjsd fdsf dsfjsdfj sdfjdsf dsf sdfjdsfjlsda fjsdf jflj fl; jf;l fjsd f a;s fjs;f;sfjsofj;sojf asf ;. </p>
+                                    <p class="fs-5">Take control of your inventory with ease! Update or delete your own products effortlessly. Empower your business with precise management and seamless adjustments. Whether you’re refining listings or clearing stock, our platform offers the flexibility and simplicity you need to keep your products in perfect order. Your success, our support.</p>
                                 </div>
                                 <div class="col-12 d-flex justify-content-center justify-content-lg-end align-items-end mt-2 mt-lg-4">
                                     <button class="btn btn-outline-danger" onclick="viewDeleteModel();">Delete Product...</button>
@@ -310,13 +310,13 @@ if (isset($_GET["id"])) {
 
                 <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast">
                     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-header bg-secondary text-white">
+                        <div class="toast-header bg-body">
                             <img src="resources/logo.svg" height="30px" class="rounded me-2" alt="...">
                             <strong class="me-auto">Emart</strong>
                             <small>Massage</small>
                             <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
-                        <div class="toast-body bg-dark fw-bold text-white">
+                        <div class="toast-body bg-body fw-bold">
                             Your Product Sucessfully Updated ...
                         </div>
                     </div>

@@ -46,7 +46,7 @@ require "connection.php";
                 </div>
                 <hr class="border border-2 border-dark">
                 <div class="col-12 col-md-6 p-2">
-                    <div class="col-12 d-flex">
+                    <div class="col-12 d-flex"> 
                         <div class="col-6 p-2">
                             <p class="text-secondary">Category Type</p>
                             <select class="form-select shadow-none" id="selectCategoryType">
@@ -246,7 +246,7 @@ require "connection.php";
         </div>
     <?php
     }
-
+    include "footer.php"
     ?>
 
     <!-- toast -->

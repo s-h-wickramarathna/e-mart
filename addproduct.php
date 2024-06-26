@@ -24,8 +24,8 @@
 
                     <div class="col-12 col-lg-4 bg-light">
                         <div class="row text-center">
-                            <div class="col-12"><img src="resources/user_profile_img/userprofile.png" height="200px"></div>
-                            <p class="fw-bold fs-4 text-black-50">Sarasavi.pvt.ltd</p>
+                            <div class="col-12"><img src="resources/logo.svg" height="200px"></div>
+                            <p class="fw-bold fs-4 text-black-50">Emart.pvt.ltd</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-8 mt-3">
@@ -159,7 +159,7 @@
                                     ?>
                                 </select>
                             </div>
-                            <!-- item -->
+                            <!-- item --> 
                             <!-- item -->
                             <div class="col-6 col-lg-4 mt-3 mb-3">
                                 <div class="row">

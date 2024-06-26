@@ -31,7 +31,7 @@ if (isset($_SESSION["user"])) {
     <body>
 
         <div class="container-fluid bg-light">
-            <div class="row">
+            <div class="row vh-100">
 
                 <div class="col-12 mb-2 bg-light shadow-sm border-bottom">
                     <div class="row py-1 d-flex justify-content-end p-2">
@@ -57,13 +57,13 @@ if (isset($_SESSION["user"])) {
                 </div>
                 <hr>
                 <div class="col-12 mt-1 mb-4">
-                    <div class="row">
+                    <div class="row mb-5">
 
                         <div class="col-12 col-lg-6">
                             <div class="row">
                                 <div class="col-12">
                                     <p class="fs-4 fw-bold text-primary">How To Report Us ....</p>
-                                    <p class="fw-bold ms-2">You must first be our valued customer to let us know about your problem. Then you can inform us about the problem you have through this chat box.
+                                    <p class="fw-bold ms-2">You must first be our valued customer to let us know about your problem. Then you can inform us about the problem you have through Whatsapp Or Call.
                                         Then we will look into your problem and give you an answer as soon as possible.</p>
                                 </div>
                                 <div class="col-12">
@@ -85,86 +85,6 @@ if (isset($_SESSION["user"])) {
 
                         <div class="col-12 col-lg-6 p-2">
                             <div class="row justify-content-center">
-
-                                <div class="col-11 mt-2 mb-3 shadow rounded-2">
-                                    <div class="row">
-
-                                        <div class="col-6">
-                                            <p class="fw-bold fs-5 mt-2">ADMIN...</p>
-                                        </div>
-                                        <div class="col-6 text-end">
-                                            <img src="resources/adminMSG.png" height="50px">
-                                        </div>
-                                        <hr>
-                                        <div class="col-12" style="height: 300px;">
-                                            <div class="row overflow-auto" id="viewInquieryMSG">
-                                                <?php
-                                                $msg_rs = Database::Search("SELECT * FROM `inquiry` WHERE `in_to`='" . $user_email . "' OR `in_from`='".$user_email."' ");
-                                                $msg_num = $msg_rs->num_rows;
-
-                                                if ($msg_num != 0) {
-
-                                                    for ($x = 0; $x < $msg_num; $x++) {
-                                                        $msg_data = $msg_rs->fetch_assoc();
-
-                                                        if ($msg_data["in_to"] == $user_email && $msg_data["in_from"] == 'sanchithaheashan655@gmail.com') {
-                                                ?>
-                                                            <!-- to -->
-                                                            <div class="col-12 m-0">
-                                                                <div class="row justify-content-end">
-                                                                    <div class="col-6">
-                                                                        <div class="row justify-content-end p-2">
-                                                                            <div class="w-auto bg-success rounded-2">
-                                                                                <p class="m-0 text-white"><?php echo($msg_data["in_content"]) ?></p>
-                                                                            </div>
-                                                                            <div class="col-12 text-end">
-                                                                                <p class="m-0 fw-bold text-black-50"><?php echo($msg_data["in_datetime"]) ?> <span class="text-dark">Me</span></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- to -->
-                                                        <?php
-                                                        } else if ($msg_data["in_to"] == "sanchithaheashan655@gmail.com" && $msg_data["in_from"] == $user_email) {
-                                                        ?>
-                                                            <!-- from -->
-                                                            <div class="col-12">
-                                                                <div class="row justify-content-start">
-                                                                    <div class="col-6">
-                                                                        <div class="row justify-content-start p-2">
-                                                                            <div class="w-auto bg-primary rounded-2">
-                                                                                <p class="m-0 text-white"><?php echo($msg_data["in_content"]) ?></p>
-                                                                            </div>
-                                                                            <div class="col-12 text-start">
-                                                                                <p class="m-0 fw-bold text-black-50"> <span class="text-dark">Admin </span><?php echo($msg_data["in_datetime"]) ?></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- from -->
-                                                <?php
-                                                        }
-                                                    }
-                                                }
-
-                                                ?>
-
-
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="col-12 mb-1">
-                                            <div class="input-group mb-3">
-                                                <input type="text" class="form-control shadow-none" placeholder="Type Massage ...." id="in_text">
-                                                <button class="btn btn-primary" type="button" onclick="sendInquiries();"><i class="bi bi-send-fill"></i></button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
 

@@ -46,7 +46,7 @@ if (isset($_SESSION["user"])) {
                             <div class="row mt-4">
                                 <div class="input-group">
                                     <input type="text" class="form-control shadow-none" placeholder="Search From Cart ..." onkeyup="searchFromCart();" id="cartP_search">
-                                    <button class="btn btn-primary" type="button"><i class="bi bi-search"></i></button>
+                                    <button class="btn btn-primary" type="button" onclick="searchFromCart();"><i class="bi bi-search"></i></button>
                                 </div>
                             </div>
                         </div>

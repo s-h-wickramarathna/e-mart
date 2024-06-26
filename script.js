@@ -240,7 +240,7 @@ function signIn() {
         signInEmail.className = "form-control";
         signInPassword.className = "form-control";
         errormsg.className = "d-none";
-        window.location = "index.php";
+        window.location = "index.php"; 
       } else if (text == "admin_deactivated") {
         document.getElementById("fullcontent").className =
           "container-fluid vh-100 d-flex justify-content-center background-decoration-02 d-none";
@@ -315,6 +315,8 @@ function sendVcode() {
           "col-12 text-end d-none";
         document.getElementById("fvsendbtn").className = "col-12 text-end";
         document.getElementById("fclosebtn").classList = "d-none";
+      }else{
+      alert(txt);
       }
     } else {
       document.getElementById("fploader").className = "btn btn-primary";
@@ -599,7 +601,6 @@ function user_profile_update() {
   rq.onreadystatechange = function () {
     if (rq.readyState == 4) {
       var txt = rq.responseText;
-      alert(txt);
       if (txt == "Success") {
         document.getElementById("viewImg").className = "rounded-3 mt-5";
         document.getElementById("iniMage").className = "text-danger d-none";
@@ -1520,10 +1521,14 @@ function sellerProductfiter(x) {
   var category = document.getElementById("category");
   var brand = document.getElementById("brand");
   var model = document.getElementById("model");
-  var colour = document.getElementById("colour");
+  var colour = document.getElementById("colour").value;
   var qty = document.getElementById("quentity");
   var priceto = document.getElementById("priceTo");
   var pricefrom = document.getElementById("PriceFrom");
+
+  if(colour == ""){
+    colour = 0;
+  }
 
   var f = new FormData();
   f.append("s_bar", bar.value);
@@ -1532,7 +1537,7 @@ function sellerProductfiter(x) {
   f.append("c", category.value);
   f.append("b", brand.value);
   f.append("m", model.value);
-  f.append("clur", colour.value);
+  f.append("clur", colour);
   f.append("qty", qty.value);
   f.append("to", priceto.value);
   f.append("from", pricefrom.value);

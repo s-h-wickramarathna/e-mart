@@ -474,7 +474,7 @@
 .mainSuperimgdiv {
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(30deg, rgb(238, 222, 225), rgb(229, 229, 245), rgb(232, 221, 221));
+    background-image: linear-gradient(30deg, rgb(203, 208, 229), rgb(193, 193, 255), rgb(193, 195, 255));
 }
 
 .divscrol {

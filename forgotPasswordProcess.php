@@ -33,7 +33,7 @@ if (empty($email)) {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'sanchithaheashan655@gmail.com';
-        $mail->Password = 'dvshqaqhhyagyqqk';
+        $mail->Password = 'pgyf sffi stti ppjw';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
         $mail->setFrom('sanchithaheashan655@gmail.com', 'Emart');
@@ -55,6 +55,5 @@ if (empty($email)) {
         echo("Invalid Email Address");
     }
 }
-
+// pgyf sffi stti ppjw
 ?>
-<!-- dvshqaqhhyagyqqk -->

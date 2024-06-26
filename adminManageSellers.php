@@ -10,7 +10,7 @@ require "connection.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Emart || Manage Users ....</title>
+    <title>Emart || Manage Sellers ....</title>
 
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="style.css">
@@ -19,22 +19,22 @@ require "connection.php";
     <link rel="stylesheet" href="aos.css">
 </head>
 
-<body>
+<body> 
     <?php
 
     if (isset($_SESSION["admin"])) {
         $admin = $_SESSION["admin"];
 
-        $query = "SELECT * FROM `seller`";
+        $query = "SELECT * FROM `seller` WHERE `user_email` != '".$admin["email"]."'";
         $status = 1;
 
         if (isset($_GET["s"])) {
             $status = $_GET["s"];
 
             if ($status == 2) {
-                $query .= " WHERE `s_status`='1'";
+                $query .= " AND `s_status`='1'";
             } else if ($status == 3) {
-                $query .= " WHERE `s_status`='2'";
+                $query .= " AND `s_status`='2'";
             }
         }
 

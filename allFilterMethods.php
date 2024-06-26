@@ -121,6 +121,7 @@ if ($pageno != 0) {
     $pageno = 1;
 }
 
+
 $product_rs = Database::Search($query);
 $product_num = $product_rs->num_rows;
 

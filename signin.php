@@ -236,7 +236,7 @@
                                         <div class="col-12 text-end">
                                             <button type="button" class="btn btn-info" onclick="forgotPasswordviewType();"><i class="bi bi-eye-slash-fill" id="fp-icon">&nbsp;</i>Show Password</button>
                                         </div>
-                                    </div>
+                                    </div> 
                                     <div class="alert alert-success d-none" role="alert" id="fpsmsg">
                                         <i class="bi bi-check-circle">&nbsp;&nbsp;Your password has been successfully changed. You can now log in with your new password.</i>
                                     </div>

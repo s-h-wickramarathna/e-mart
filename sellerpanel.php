@@ -122,7 +122,7 @@ $seller_data = $seller_rs->fetch_assoc();
                                 <p onclick="activeDeactiveP();" class="ps-4 fw-bold cursor border">Deactive And Active Products</p>
                             </div>
                             <div class="col-5 col-lg-12">
-                                <p class="ps-4 fw-bold cursor border">Reports</p>
+                                <p class="ps-4 fw-bold cursor border" onclick="window.location='sellerReportPage.php'">Reports</p>
                             </div>
                         </div>
 
@@ -215,7 +215,7 @@ $seller_data = $seller_rs->fetch_assoc();
 
                             <?php
                                     } else {
-                                ?>
+                                ?> 
 
                                         <!-- card -->
                                         <div class="card cardHover cursor p-0 shadow-lg mt-4 mb-2" style="width: 15rem;">

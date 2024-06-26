@@ -29,7 +29,7 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-12 mb-2 bg-light shadow">
+                <div class="col-12 mb-2 bg-light vh-100">
                     <div class="row d-flex justify-content-end">
 
                         <div class="col-3">
@@ -67,7 +67,7 @@
                                             $p_date = $p_data["date_time"];
 
                                             $tdate = new DateTime();
-                                            $tz = new DateTimeZone("Asia/Colombo");
+                                             $tz = new DateTimeZone("Asia/Colombo");
                                             $tdate->setTimezone($tz);
 
                                             $start_date = new DateTime($p_date);
@@ -82,7 +82,20 @@
                                 ?>
 
                                                 <div class="card p-0 my-3 mx-2 cardHover cursor" style="width: 13rem;" onclick="goToSingleProductVeiw('<?php echo ($p_data['id']) ?>');">
-                                                    <img src="resources/item3.webp" class="card-img-top p_img_hover" height="210px">
+                                                    <?php
+
+                                                    $imgP = "resources/noImage.jpg";
+
+                                                    $img_prs = Database::Search("SELECT * FROM `product_images` WHERE `product_id`='" . $p_data["id"] . "' ");
+                                                    $img_pnum = $img_prs->num_rows;
+
+                                                    if ($img_pnum != 0) {
+                                                        $img_pdata = $img_prs->fetch_assoc();
+                                                        $imgP = $img_pdata["p_path"];
+                                                    }
+
+                                                    ?>
+                                                    <img src="<?php echo ($imgP) ?>" class="card-img-top p_img_hover">
                                                     <div class="card-body">
                                                         <hr>
                                                         <div class="col-12">
@@ -92,7 +105,7 @@
                                                             <p>LKR : <span class="fs-5 fw-bold"><?php echo ($p_data["price"]) ?></span></p>
                                                         </div>
                                                         <div class="col-12 text-end">
-                                                            <p class="text-black-50"><?php echo ($p_date); ?></p>
+                                                            <p class="text-black-50"><?php echo ($p_date) ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -179,9 +192,10 @@
 
 
     }
-
+     include "footer.php"
     ?>
-
+    <script src="bootstrap.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

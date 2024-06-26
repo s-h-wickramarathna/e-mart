@@ -110,7 +110,7 @@ require "connection.php";
                                     <div class="col-12 d-none" id="errormsgseller1">
                                         <div class="alert alert-danger mb-0" id="errormsgBoxseller2">
                                             <i class="bi bi-exclamation-triangle-fill" id="signup-msgseller2"></i>
-                                        </div>
+                                        </div> 
                                     </div>
                                     <div class="col-12 d-grid">
                                         <button type="button" class="btn btn-primary" onclick="sellerSignin();">Sign In</button>

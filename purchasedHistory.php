@@ -206,7 +206,7 @@ if (isset($_SESSION["user"])) {
                                                         <div class="col-12 text-end">
                                                             <p class="text-black-50 fw-bold"><?php echo ($invoice_data["date_time"]) ?></p>
                                                         </div>
-
+ 
                                                         <div class="col-12 text-end">
                                                             <?php
                                                             

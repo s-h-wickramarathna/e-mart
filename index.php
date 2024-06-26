@@ -27,20 +27,25 @@
 
             <div class="mainSuperimgdiv">
 
-            <div class="col-12">
-
-                <div class="col-12 vh-100 row justify-content-center align-items-center">
-                    <div class="row justify-content-center align-items-center">
-                        <img src="resources/logo.svg" height="250px">
-                        <div class="col-12 text-center mt-3">
-                            <p class="fw-bold fs-5">Hi , Welcome To Emart, Your In The World Best E-commerce Platform</p>
+                <div class="col-12 vh-100 overflow-hidden">
+                    <div class="row overflow-hidden">
+                        <div class="col-12 pt-5 pt-lg-0 col-lg-6 d-flex justify-content-center align-items-center">
+                            <div class="row mt-5 pt-5 pt-lg-0">
+                                <img src="resources/logo.svg" height="250px">
+                                <div class="col-12 text-center mt-3">
+                                    <p class="fw-bold fs-5">Hi , Welcome To Emart, Your In The World Best E-commerce <br>Platform</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-block justify-content-center align-items-center">
+                            <div class="row justify-content-center align-items-center">
+                                <img src="resources/indexImage.svg">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            </div>
-            
 
 
             <div class="col-12 bgup">

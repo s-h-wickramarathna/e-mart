@@ -32,8 +32,8 @@ require "connection.php";
 
                     <div class="col-12 col-lg-4 bg-light">
                         <div class="row text-center">
-                            <div class="col-12"><img src="resources/user_profile_img/userprofile.png" height="200px"></div>
-                            <p class="fw-bold fs-4 text-black-50">Sarasavi.pvt.ltd</p>
+                            <div class="col-12"><img src="resources/logo.svg" height="200px"></div>
+                            <p class="fw-bold fs-4 text-black-50">Emart.pvt.ltd</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-8 mt-3">
@@ -186,7 +186,7 @@ require "connection.php";
                                         <img src="resources/emptyProducts.png" onclick="updateProduct(<?php echo ($p_data['id']) ?>);" class="card-img-top" height="190px" />
                                     <?php
                                     }
-    
+     
                                     if ($p_data["status_s_id"] == 1) {
                                     ?>
                                         <div class="col-12 d-flex justify-content-end">

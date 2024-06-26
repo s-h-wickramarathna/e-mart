@@ -22,12 +22,12 @@ if(isset($_POST["n"])){
         $code = uniqid(); 
         Database::iud("UPDATE `seller` SET `s_verification_code`='".$code."' ");
 
-        $mail = new PHPMailer;
+        $mail = new PHPMailer; 
         $mail->IsSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'sanchithaheashan655@gmail.com';
-        $mail->Password = 'dvshqaqhhyagyqqk';
+        $mail->Password = 'pgyf sffi stti ppjw';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
         $mail->setFrom('sanchithaheashan655@gmail.com', 'Emart');

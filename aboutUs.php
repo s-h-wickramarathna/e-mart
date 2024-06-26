@@ -16,7 +16,7 @@
 
 <body>
 
-    <div class="container-fluid vh-100 d-flex justify-content-center align-items-center aboutuscolour">
+    <div class="container-fluid vh-100 d-flex justify-content-center align-items-center bg-body">
         <div class="row">
 
             <div class="col-12 d-flex justify-content-center">

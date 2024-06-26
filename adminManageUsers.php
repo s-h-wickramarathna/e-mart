@@ -24,23 +24,22 @@ require "connection.php";
 <body>
 
     <?php
-
+ 
     if (isset($_SESSION["admin"])) {
         $admin = $_SESSION["admin"];
 
-        $query = "SELECT * FROM `user`";
+        $query = "SELECT * FROM `user` WHERE `email` != '".$admin["email"]."'";
         $status = 1;
 
         if (isset($_GET["s"])) {
             $status = $_GET["s"];
 
             if ($status == 2) {
-                $query .= " WHERE `status`='2' ";
+                $query .= " AND `status`='2'";
             } else if ($status == 3) {
-                $query .= " WHERE `status`='1' ";
+                $query .= " AND `status`='1'";
             }
         }
-
     ?>
 
 
