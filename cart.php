@@ -22,9 +22,11 @@ if (isset($_SESSION["user"])) {
 
     Database::iud("UPDATE `cart` SET `veiw_status`='1' WHERE `user_email`='" . $user_email . "' ");
 
+    $isAddressHave = false;
     $sub_total = 0;
     $shipping_cost = 0;
     $total = 0;
+    $grandTotal = 0;
 
 ?>
 
@@ -166,7 +168,7 @@ if (isset($_SESSION["user"])) {
 
                                                                     } else {
                                                                     ?>
-                                                                        <div class="col-6 d-flex justify-content-center"><input type="number" class="form-control shadow-none" value="<?php echo ($cart_data["cart_qty"]) ?>" id="p_quentity<?php echo ($product_data["id"]) ?>" /></div>
+                                                                        <div class="col-6 d-flex justify-content-center"><input type="number" class="form-control shadow-none" disabled value="<?php echo ($cart_data["cart_qty"]) ?>" id="p_quentity<?php echo ($product_data["id"]) ?>" /></div>
                                                                         <div class="col-6">
                                                                             <i class="bi bi-plus-square fs-3 cursor active_cartBtn" onclick="cartQtyPlus('<?php echo ($product_data['id']) ?>',1);"></i>
                                                                             <i class="bi bi-dash-square fs-3 cursor active_cartBtn" onclick="cartQtyPlus('<?php echo ($product_data['id']) ?>',2);"></i>
@@ -193,30 +195,31 @@ if (isset($_SESSION["user"])) {
                                                         $user_rs = Database::Search("SELECT * FROM `user_has_address` INNER JOIN `city` ON `user_has_address`.`city_id`=`city`.`ci_id` WHERE `user_email`='" . $user_email . "' ");
                                                         $user_num = $user_rs->num_rows;
 
-                                                        if($user_num == 0){
-                                                            ?>
+                                                        if ($user_num == 0) {
+                                                            $isAddressHave = false;
+                                                        ?>
                                                             <p class="m-0">shipping : LKR . ------</p>
-                                                            <?php
-                                                        }else{
-
-                                                        $user_data = $user_rs->fetch_assoc();
-
-                                                        $shipping = "0";
-
-                                                        if ($user_data["distric_id"] == "1") {
-                                                            $shipping = $product_data["cost_colombo"];
-                                                            $shipping_cost = $shipping_cost + $shipping;
+                                                        <?php
                                                         } else {
-                                                            $shipping = $product_data["cost_others"];
-                                                            $shipping_cost = $shipping_cost + $shipping;
-                                                        }
+                                                            $isAddressHave = true;
+                                                            $user_data = $user_rs->fetch_assoc();
+
+                                                            $shipping = "0";
+
+                                                            if ($user_data["distric_id"] == "1") {
+                                                                $shipping = $product_data["cost_colombo"];
+                                                                $shipping_cost = $shipping_cost + $shipping;
+                                                            } else {
+                                                                $shipping = $product_data["cost_others"];
+                                                                $shipping_cost = $shipping_cost + $shipping;
+                                                            }
 
                                                         ?>
 
-                                                        <p class="m-0">shipping : LKR . <?php echo ($shipping) ?></p>
-                                                    <?php
-                                                    }
-                                                    ?>
+                                                            <p class="m-0">shipping : LKR . <?php echo ($shipping) ?></p>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </div>
 
                                                     <div class="col-12">
@@ -246,7 +249,7 @@ if (isset($_SESSION["user"])) {
 
                                                     <div class="col-12 text-end">
                                                         <button class="btn btn-outline-danger" onclick="removeFromProduct('<?php echo ($cart_data['cart_id']) ?>');">Remove</button>
-                                                        <button class="btn btn-primary">Buy Now</button>
+                                                        <button class="btn btn-primary"  onclick="goToSingleProductVeiw('<?php echo ($product_data['id']) ?>');">Buy Now</button>
                                                     </div>
 
                                                 </div>
@@ -325,7 +328,12 @@ if (isset($_SESSION["user"])) {
                                                     <p class="m-0 fs-6 fw-bold">GRAND TOTAL :</p>
                                                 </div>
                                                 <div class="col-6 text-end">
-                                                    <p class="m-0 fw-bold"><?php echo ($total + $shipping_cost) ?>.00</p>
+                                                    <p class="m-0 fw-bold">
+                                                        <?php
+                                                        $grandTotal = $total + $shipping_cost;
+                                                        echo ($grandTotal)
+                                                        ?>.00
+                                                    </p>
                                                 </div>
 
                                                 <div class="col-12">
@@ -336,7 +344,19 @@ if (isset($_SESSION["user"])) {
                                         </div>
 
                                         <div class="col-12 text-end text-lg-center">
-                                            <button class="btn btn-dark">CKECKOUT</button>
+                                            <?php
+                                            if ($isAddressHave) {
+                                            ?>
+                                                <div id="paypal-button-container"></div>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <div id="paypal-button-container" hidden></div>
+                                                <button type="button" class="btn btn-primary" onclick="window.location = 'userProfile.php'">Fill Shipping Information Before By</button>
+                                            <?php
+                                            }
+                                            ?>
+
                                         </div>
 
                                         <div class="col-12 mt-4 fw-bold">
@@ -364,8 +384,47 @@ if (isset($_SESSION["user"])) {
 
             </div>
         </div>
+        <script src="https://www.paypal.com/sdk/js?client-id=Ae8w3dvmEp3wwc0CEZHElfvSLjJd67zVPqIl4uhPqdLUoOOsHrXvrKcWiRgy-2nT_wS9nlvAI6u6QWb4&currency=USD"></script>
         <script src="script.js"></script>
     </body>
+    <script>
+        var amount = 0.00;
+        window.onload = async function() {
+            var b_qty = document.getElementById("buy_qty");
+
+
+            var usdamount = await convertCurrency(<?= $grandTotal ?>);
+            amount = usdamount;
+            // alert(usdamount);
+        };
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                // Set up the transaction
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: amount // Set the amount to be paid
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                // Capture the transaction
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    console.log('Transaction completed by ' + details.payer.name.given_name);
+                    console.log(details); // Log details for further processing or record keeping
+                    saveCartInvoice('<?= uniqid() ?>', <?= $grandTotal ?>, <?= $shipping_cost ?>);
+                });
+            },
+            onError: function(err) {
+                // Show an error message
+                console.error('An error occurred during the transaction:', err);
+            }
+        }).render('#paypal-button-container');
+        // This function displays Smart Payment Buttons on your web page.
+    </script>
+
 <?php
 } else {
 

@@ -2,7 +2,9 @@
 session_start();
 require "connection.php";
 
-$user_Shipping;
+$user_Shipping = 0;
+$unit_price = 0;
+$isAddressHave = false;
 
 if (isset($_GET["pid"]) && isset($_GET["s"])) {
     $p_id = $_GET["pid"];
@@ -197,7 +199,12 @@ if (isset($_GET["pid"]) && isset($_GET["s"])) {
                         </div>
 
                         <div class="col-12 border-top border-bottom mb-3">
-                            <p class="fw-bold fs-3 m-0 mt-1 mb-1">LKR : <?php echo ($product_data["price"]); ?>.00</p>
+                            <p class="fw-bold fs-3 m-0 mt-1 mb-1">LKR :
+                                <?php
+                                $unit_price = $product_data["price"];
+                                echo ($product_data["price"]);
+                                ?>.00
+                            </p>
                         </div>
 
                         <div class="col-6 mt-1 mb-1">
@@ -221,7 +228,7 @@ if (isset($_GET["pid"]) && isset($_GET["s"])) {
                                     <span class="fw-bold">Quentity :</span><span class="text-black-50 fw-bold"> <?php echo ($product_data["qty"]) ?> Pieces Available</span>
                                 </div>
                                 <div class="col-5 mt-2">
-                                    <input type="number" class="form-control shadow-none" value="1" min="1" max="<?php echo ($product_data["qty"]) ?>" id="buy_qty">
+                                    <input type="number" class="form-control shadow-none" value="1" min="1" max="<?php echo ($product_data["qty"]) ?>" id="buy_qty" oninput="handleQuantityChange(this)" />
                                 </div>
 
                             </div>
@@ -248,12 +255,14 @@ if (isset($_GET["pid"]) && isset($_GET["s"])) {
                                 $user_num = $user_rs->num_rows;
 
                                 if ($user_num == 0) {
+                                    $isAddressHave = false;
                             ?>
                                     <span class="fw-bold">Ship to :-</span> <i class="bi bi-geo-alt-fill text-danger"></i><span>-----------</span>
                                     <p class="fs-4 fw-bold border-top border-bottom mt-2"><span class="fw-bold fs-5">Shipping</span> LKR : ------</p>
 
                                 <?php
                                 } else {
+                                    $isAddressHave = true;
                                     $user_data = $user_rs->fetch_assoc();
 
                                     if ($user_data["ci_id"] == 1 && $user_data["ci_name"] == "Colombo") {
@@ -285,40 +294,27 @@ if (isset($_GET["pid"]) && isset($_GET["s"])) {
                             <i class="bi bi-shield-fill-check text-success">&nbsp;&nbsp;</i><span class="fs-6"><span class="fw-bold">7 Days</span> Buyer Protection</span>
                         </div>
 
-                        <div class="col-6 border-top">
-                            <p class="m-0 mt-2 mb-2 fw-bold">Massage With Seller ...</p>
-                        </div>
-
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-8">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control shadow-none" placeholder="Type your question here & Send it ..." id="sendMSGS<?php echo($product_data['nic']) ?>">
+
+                                <div class="offset-8 col-4 d-grid">
+                                    <?php
+
+                                    if (isset($_SESSION["user"])) {
+                                        if ($isAddressHave) {
+                                    ?>
+                                            <div id="paypal-button-container"></div>
                                         <?php
-
-                                    if (isset($_SESSION["user"])) {
-                                    ?>
-                                        <button class="btn btn-primary" type="button" onclick="sendSellerMSG('<?php echo($product_data['nic']) ?>');"><i class="bi bi-send-fill"></i></button>
-                                    <?php
-                                    }else{
+                                        } else {
                                         ?>
-                                        <button class="btn btn-primary" type="button" disabled><i class="bi bi-send-fill"></i></button>
-                                    <?php
-                                    }
-                                    ?>
-                                    </div>
-                                </div>
-
-                                <div class="col-4 d-grid">
-                                    <?php
-
-                                    if (isset($_SESSION["user"])) {
-                                    ?>
-                                        <button type="submit" class="btn btn-success" id="payhere-payment" onclick="payNow(<?php echo ($p_id) ?>)">Buy Now</button>
-                                    <?php
+                                            <div id="paypal-button-container" hidden></div>
+                                            <button type="button" class="btn btn-primary" onclick="window.location = 'userProfile.php'">Fill Shipping Information Before By</button>
+                                        <?php
+                                        }
                                     } else {
-                                    ?>
-                                        <button type="submit" class="btn btn-success" id="payhere-payment" disabled onclick="payNow(<?php echo ($p_id) ?>)">Buy Now</button>
+                                        ?>
+                                        <div id="paypal-button-container" hidden></div>
+                                        <button type="button" class="btn btn-primary" onclick="window.location = 'signin.php'">You Must Sign In Or Sign Up For Buy This Item</button>
                                     <?php
                                     }
 
@@ -511,47 +507,6 @@ if (isset($_GET["pid"]) && isset($_GET["s"])) {
 
                 <?php include "footer.php" ?>
 
-                <!-- model prifile -->
-
-                <div class="modal" tabindex="-1" id="editProfile">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Edit Your Profile ...</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Edit Your Profile, Shipping Details ???</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" onclick="window.location = 'userProfile.php'">Go</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- model prifile -->
-                <!-- model prifile -->
-
-                <div class="modal" tabindex="-1" id="gotosignin">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Warninig ....</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Before Buy, You Have To Do Sign In Or Sign Up ???</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" onclick="window.location = 'signin.php'">Sign In Or Sign Up</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- model prifile -->
-
                 <!-- model Rates -->
 
                 <div class="modal" tabindex="-1" id="rate_model<?php echo ($p_id) ?>">
@@ -732,10 +687,68 @@ if (isset($_GET["pid"]) && isset($_GET["s"])) {
             </div>
         </div>
 
-        <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+        <script src="https://www.paypal.com/sdk/js?client-id=Ae8w3dvmEp3wwc0CEZHElfvSLjJd67zVPqIl4uhPqdLUoOOsHrXvrKcWiRgy-2nT_wS9nlvAI6u6QWb4&currency=USD"></script>
         <script src="bootstrap.js"></script>
         <script src="script.js"></script>
     </body>
+    <script>
+        var amount = 0.00;
+        var lkrAmount = 0.00;
+        var b_qty = 1;
+        var unitprice = <?= $unit_price ?>;
+        var ship = <?= $user_Shipping ?>;
+
+        window.onload = async function() {
+            lkrAmount = (b_qty * unitprice) + ship;
+            var usdamount = await convertCurrency(lkrAmount);
+            amount = usdamount;
+        };
+
+        async function handleQuantityChange(input) {
+            let inputValue = parseInt(input.value);
+
+            const min = parseInt(input.min);
+            const max = parseInt(input.max);
+
+            if (inputValue < min) {
+                inputValue = min;
+            } else if (inputValue > max) {
+                inputValue = max;
+            }
+            input.value = inputValue;
+            b_qty = inputValue;
+            lkrAmount = (b_qty * unitprice) + ship;
+            var usdamount = await convertCurrency(lkrAmount);
+            amount = usdamount;
+        }
+
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                // Set up the transaction
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: amount // Set the amount to be paid
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                // Capture the transaction
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    console.log('Transaction completed by ' + details.payer.name.given_name);
+                    console.log(details); // Log details for further processing or record keeping
+                    saveInvoice('<?= uniqid() ?>', <?= $p_id ?>, '<?= $user_email ?>', lkrAmount, b_qty, ship);
+                });
+            },
+            onError: function(err) {
+                // Show an error message
+                console.error('An error occurred during the transaction:', err);
+            }
+        }).render('#paypal-button-container');
+        // This function displays Smart Payment Buttons on your web page.
+    </script>
 
     </html>
 

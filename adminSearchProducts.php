@@ -11,7 +11,7 @@ if (isset($_GET["i"]) && isset($_GET["s"])) {
     INNER JOIN `brand` ON `model_has_brand`.`brand_id`=`brand`.`b_id`
     INNER JOIN `model` ON `model_has_brand`.`model_id`=`model`.`m_id` 
     INNER JOIN `condition` ON `product`.`condition_id`=`condition`.`co_id` 
-    WHERE `id` LIKE '%".$pid."%' ";
+    WHERE `id` LIKE '%".$pid."%' OR `title` LIKE '%".$pid."%'";
 
     if ($status == 2) {
         $query .= " AND `admin_status`='2' ";

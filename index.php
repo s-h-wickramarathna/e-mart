@@ -97,7 +97,7 @@
                                             ?>
 
                                                 <div class="col-4 col-md-3 col-lg-12 mt-1 mb-1">
-                                                    <a href="loadviewCategory.php?c=<?php echo ($category_data["ca_id"]) ?>" class="aclass aclass3"><?php echo ($category_data["ca_name"]) ?></a>
+                                                    <a href="searchProduct.php?c=<?php echo ($category_data["ca_id"]) ?>" class="aclass aclass3"><?php echo ($category_data["ca_name"]) ?></a>
                                                 </div>
 
                                             <?php
@@ -271,7 +271,7 @@
 
                     <?php
 
-                    $product_rs = Database::Search("SELECT * FROM `product` WHERE `status_s_id`='1' AND `admin_status`='1' ORDER BY `date_time` DESC ");
+                    $product_rs = Database::Search("SELECT * FROM `product` WHERE `status_s_id`='1' AND `admin_status`='1' AND `qty`!='0' ORDER BY `date_time` DESC ");
                     $product_num = $product_rs->num_rows;
 
 

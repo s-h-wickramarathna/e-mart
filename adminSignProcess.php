@@ -25,7 +25,7 @@ if (isset($_POST["ae"]) && isset($_POST["ap"])) {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'sanchithaheashan655@gmail.com';
-        $mail->Password = 'dvshqaqhhyagyqqk';
+        $mail->Password = 'pgyf sffi stti ppjw';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
         $mail->setFrom('sanchithaheashan655@gmail.com', 'Emart');
@@ -45,4 +45,4 @@ if (isset($_POST["ae"]) && isset($_POST["ap"])) {
         echo ("Invalid Email Or Password ???");
     }
 }
-// dvshqaqhhyagyqqk
+// pgyf sffi stti ppjw

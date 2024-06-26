@@ -28,17 +28,14 @@ require "connection.php";
                             <div class="col-12">
                                 <div class="row">
 
-                                    <div class="col-12 mt-2">
+                                    <div class="col-12 mt-3 mb-3">
                                         <div class="row">
                                             <div class="col-12 text-center mb-2">
-                                                <img src="resources/noImage.jpg" class="rounded-circle" height="80px">
+                                                <img src="resources/logo.svg" class="" height="80px">
                                             </div>
-                                            <div class="col-12 text-center mb-1">
+                                            <div class="col-12 text-center mb-4">
                                                 <p class="m-0 fw-bold">Sanchitha Heshan</p>
                                                 <p class="m-0 fw-bold text-black-50">Managing Director</p>
-                                            </div>
-                                            <div class="col-12 text-end">
-                                                <i class="bi bi-pencil-square cursor"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -66,6 +63,9 @@ require "connection.php";
                                                 <a href="adminManageProducts.php" class="aclass">Manage Products ...</a>
                                             </div>
                                             <div class="col-12">
+                                                <a href="adminManageCategories.php" class="aclass">Manage Categories ...</a>
+                                            </div>
+                                            <div class="col-12">
                                                 <a href="adminManageSellers.php" class="aclass">Manage Sellers ...</a>
                                             </div>
                                             <div class="col-12">
@@ -74,25 +74,6 @@ require "connection.php";
                                             <div class="col-12">
                                                 <a href="adminSellerRequest.php" class="aclass">Seller Request ...</a>
                                             </div>
-                                            <div class="col-12">
-                                                <?php
-                                                $msg_rs = Database::Search("SELECT * FROM `inquiry` WHERE `in_from`='sanchithaheashan655@gmail.com' AND `admin_view_status`='2' ");
-                                                $msg_num = $msg_rs->num_rows;
-
-                                                if($msg_num == 0){
-                                                    ?>
-                                                    <a href="adminMassage.php" class="aclass">Massage ...</a>
-                                                    <?php
-                                                }else{
-                                                    ?>
-                                                    <a href="adminMassage.php" class="aclass">Massage ...&nbsp;<span class="badge text-bg-danger"><?php echo($msg_num) ?></span></a>
-                                                    <?php
-                                                }
-                                                ?>
-                                                
-                                                
-                                            </div>
-
 
                                             <div class="col-12">
                                                 <button class="btn btn-outline-dark">Logout</button>

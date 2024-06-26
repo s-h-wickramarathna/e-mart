@@ -147,10 +147,10 @@ require "connection.php";
                                             <th scope="row" class="bg-secondary text-white"><?php echo ($x + 1); ?></th>
                                             <td class="bg-info text-white"><?php echo ($user_data["fname"]) ?></td>
                                             <td class="bg-secondary text-white"><?php echo ($user_data["lname"]) ?></td>
-                                            <td class="bg-info text-white" onclick="ShowFullUserDetails('<?php echo ($user_data['email']) ?>');"><?php echo ($user_data["email"]) ?></td>
+                                            <td class="bg-info text-white"  style="cursor: pointer;" onclick="ShowFullUserDetails('<?php echo ($user_data['email']) ?>');"><?php echo ($user_data["email"]) ?></td>
                                             <td class="bg-secondary text-white"><?php echo ($user_data["mobile"]) ?></td>
                                             <td class="bg-info text-white"><?php echo ($gender_data["type"]) ?></td>
-                                            <td class="bg-info text-white text-center"><?php
+                                            <td class="bg-secondary text-white text-center"><?php
                                                                                         if ($user_data["status"] == 1) {
                                                                                         ?>
                                                     <button class="btn btn-danger" id="b&Ubtn<?php echo ($user_data["email"]) ?>" onclick="block_Unblock_Users('<?php echo ($user_data['email']) ?>');">Block</button>

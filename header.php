@@ -28,8 +28,13 @@
                             session_start();
                             require "connection.php";
 
-                            $in_msg = Database::Search("SELECT * FROM `inquiry` WHERE `in_from`='" . $_SESSION["user"]["email"] . "' AND `user_view_status`='2' ");
-                            $in_msg_num = $in_msg->num_rows;
+                            $in_msg_num = 0;
+
+                            if (isset($_SESSION["user"])) {
+                                $in_msg = Database::Search("SELECT * FROM `inquiry` WHERE `in_from`='" . $_SESSION["user"]["email"] . "' AND `user_view_status`='2' ");
+                                 $in_msg_num = $in_msg->num_rows;
+                            }
+                            
 
                             ?>
 
@@ -113,17 +118,6 @@
                         <div class="text-center my-3"><a href="userProfile.php" class="btn btn-primary">Edit Profile</a></div>
 
                         <div class="col-12 p-3 border-top"><a href="purchasedHistory.php" class="aclass">Purchesd Histroy</a></div>
-                        <div class="col-12 p-3 border-top"><a href="massageWithSellers&admin.php" class="aclass">Massage </a>
-                            <?php
-
-                            $msg_rs = Database::Search("SELECT * FROM `massage` WHERE `m_from`='" . $_SESSION["user"]["email"] . "' AND `user_status`='1' ");
-                            $msg_num = $msg_rs->num_rows;
-
-                            if ($msg_num != 0) {
-                            ?><span class="badge text-bg-primary"><?php echo ($msg_num) ?></span><?php
-                                                                                                }
-
-                                                                                                    ?></div>
 
                         <div class="col-12 p-3 border-top">
                             <a href="whatchList.php" class="aclass">Watchlist </a>

@@ -49,7 +49,7 @@ require "connection.php";
 
         <div class="container-fluid">
             <div class="row">
-                <?php include "adminHeader.php";?>
+                <?php include "adminHeader.php"; ?>
 
                 <div class="col-12 mt-3">
                     <div class="row">
@@ -59,8 +59,8 @@ require "connection.php";
                         </div>
                         <div class="col-8">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Enter Product Id ...." id="searchProductAdmin" onkeyup="SearchAdminproduct(<?php echo($status) ?>);">
-                                <button class="btn btn-dark" type="button" onclick="SearchAdminproduct(<?php echo($status) ?>);">Search</button>
+                                <input type="text" class="form-control" placeholder="Enter Product Id ...." id="searchProductAdmin" onkeyup="SearchAdminproduct(<?php echo ($status) ?>);">
+                                <button class="btn btn-dark" type="button" onclick="SearchAdminproduct(<?php echo ($status) ?>);">Search</button>
                             </div>
                         </div>
 
@@ -72,25 +72,26 @@ require "connection.php";
                                         if ($status == 1) {
                                         ?>
                                             <option value="1" selected>Select Method</option>
-                                            <option value="2">Block Users</option>
-                                            <option value="3">Unblock Users</option>
+                                            <option value="2">Block Products</option>
+                                            <option value="3">Unblock Products</option>
                                         <?php
                                         } else if ($status == 2) {
                                         ?>
                                             <option value="1">Select Method</option>
-                                            <option value="2" selected>Block Users</option>
-                                            <option value="3">Unblock Users</option>
+                                            <option value="2" selected>Block Products</option>
+                                            <option value="3">Unblock Products</option>
                                         <?php
                                         } else if ($status == 3) {
                                         ?>
                                             <option value="1">Select Method</option>
-                                            <option value="2">Block Users</option>
-                                            <option value="3" selected>Unblock Users</option>
+                                            <option value="2">Block Products</option>
+                                            <option value="3" selected>Unblock Products</option>
                                         <?php
                                         }
                                         ?>
                                     </select>
                                 </div>
+                                
                             </div>
                         </div>
 
@@ -244,6 +245,7 @@ require "connection.php";
 
             </div>
         </div>
+
     <?php
 
     } else {

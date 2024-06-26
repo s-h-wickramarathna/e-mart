@@ -33,6 +33,8 @@ if ($category != 0 && $status == 0) {
 
 // category
 
+$query.= "AND `qty`!='0'";
+
 // Brand & Model
 $mHb_id = 0;
 

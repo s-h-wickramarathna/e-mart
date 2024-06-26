@@ -83,7 +83,7 @@ $seller_data = $seller_rs->fetch_assoc();
                                         <?php
                                         } else {
                                         ?>
-                                            <img src="resources/user_profile_img/sana_634d54a6c8427.jpeg" height="160px" class="rounded-circle mt-3 mb-2">
+                                            <img src="resources/noImage.jpg" height="160px" class="rounded-circle mt-3 mb-2">
                                         <?php
                                         }
 
@@ -105,7 +105,7 @@ $seller_data = $seller_rs->fetch_assoc();
                 <div class="row">
 
                     <div class="col-12 col-lg-3 col-xl-2 sticky-top">
-                        <div class="row mt-1 mb-1 d-flex justify-content-center border-bottom border-end">
+                        <div class="row mt-1 mb-1 d-flex justify-content-center">
                             <div class="col-12 mt-2 pb-3">
                                 <p class="m-0 fs-4 fw-bold">My Section</p>
                             </div>
@@ -114,18 +114,6 @@ $seller_data = $seller_rs->fetch_assoc();
                             </div>
 
                             <div class="col-5 col-lg-12">
-                                <p class="ps-4 fw-bold cursor border" onclick="window.location='massageWithBuyers&Admin.php'">Massages
-                                    <?php
-
-                                    $msg_rs = Database::Search("SELECT * FROM `massage` WHERE `m_from`='" . $s_nic . "' AND `seller_status`='1' ");
-                                    $msg_num = $msg_rs->num_rows;
-
-                                    if ($msg_num != 0) {
-                                    ?><span class="badge text-bg-primary"><?php echo ($msg_num) ?></span><?php
-                                                                                                        }
-
-                                                                                                            ?></p>
-
                             </div>
                             <div class="col-5 col-lg-12">
                                 <p class="ps-4 fw-bold cursor border" onclick="window.location='addproduct.php'">Add Product</p>

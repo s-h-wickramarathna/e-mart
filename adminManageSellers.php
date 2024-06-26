@@ -32,9 +32,9 @@ require "connection.php";
             $status = $_GET["s"];
 
             if ($status == 2) {
-                $query .= " WHERE `s_status`='2'";
+                $query .= " WHERE `s_status`='1'";
             } else if ($status == 3) {
-                $query .= " WHERE `s_status`='3'";
+                $query .= " WHERE `s_status`='2'";
             }
         }
 
@@ -144,7 +144,7 @@ require "connection.php";
                                         <tr>
                                             <th scope="row" class="bg-secondary text-white"><?php echo ($x + 1); ?></th>
                                             <td class="bg-info text-white"><?php echo ($user_data['email']) ?></td>
-                                            <td class="bg-secondary text-white text-center">
+                                            <td class="bg-secondary text-white text-center" style="cursor: pointer;">
                                                 <?php
 
                                                 $shop_image = "resources/noImage.jpg";

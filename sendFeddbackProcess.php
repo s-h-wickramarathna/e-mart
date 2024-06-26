@@ -7,6 +7,7 @@ $f_text = $_POST["f"];
 $r_count = $_POST["r"];
 $product_id = $_POST["i"];
 
+
 $d = new DateTime();
 $tz = new DateTimeZone("Asia/Colombo");
 $d->setTimezone($tz);

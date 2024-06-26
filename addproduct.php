@@ -221,7 +221,7 @@
                                     for ($z = 0; $z < $size_num; $z++) {
                                         $size_data = $size_rs->fetch_assoc();
                                     ?>
-                                        <option value="<?php echo ($size_data["id"]) ?>"><?php echo ($size_data["size_name"]) ?></option>
+                                        <option value="<?php echo ($size_data["size_id"]) ?>"><?php echo ($size_data["size_name"]) ?></option>
                                     <?php
                                     }
 
@@ -342,7 +342,7 @@
 
             <?php include "footer.php"; ?>
 
-            <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast">
+            <div class="toast-container position-fixed bottom-0 end-0 p-3" id="Ptoast">
                 <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header bg-secondary text-white">
                         <img src="resources/logo.svg" height="30px" class="rounded me-2" alt="...">

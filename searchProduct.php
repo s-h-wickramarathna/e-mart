@@ -99,8 +99,8 @@ require "connection.php";
                     </div>
                     <div class="col-3 ms-3 ms-md-0 col-md-3 col-lg-2 px-md-4 text-center mt-1 mt-md-2 mb-2">
                         <div class="row pt-0 pt-md-2 text-center">
-                            <button type="button" class="btn btn-dark">
-                                <i class="bi bi-cart4 cursor fs-5" onclick="window.location='cart.php'"></i>
+                            <button type="button" class="btn btn-dark" onclick="window.location='cart.php'">
+                                <i class="bi bi-cart4 cursor fs-5" ></i>
                                 <?php
 
                                 $veiw_s = Database::Search("SELECT * FROM `cart` WHERE `veiw_status`='0' ");

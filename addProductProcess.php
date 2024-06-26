@@ -55,7 +55,7 @@ if (isset($_POST["size"])) {
 
         Database::iud("INSERT INTO `product` 
     (`model_has_brand_id`,`colour_id`,`condition_id`,`title`,`description`,`price`,`qty`,`cost_colombo`,`cost_others`,`category_ca_id`,`Size_id`,`seller_nic`,`status_s_id`,`date_time`) VALUES
-    ('" . $model_has_brand_data["id"] . "','" . $colour . "','" . $condition . "','" . $title . "','" . $desc . "','" . $price . "','" . $quentity . "','" . $colombo_cost . "','" . $other_cost . "','" . $category . "','" . $p_size . "','" . $seller_nic . "','1','" . $date . "') ");
+    ('" . $model_has_brand_data["m_h_b_id"] . "','" . $colour . "','" . $condition . "','" . $title . "','" . $desc . "','" . $price . "','" . $quentity . "','" . $colombo_cost . "','" . $other_cost . "','" . $category . "','" . $p_size . "','" . $seller_nic . "','1','" . $date . "') ");
 
         $product_id = Database::$connection->insert_id;
 
@@ -146,7 +146,7 @@ if (isset($_POST["size"])) {
 
         Database::iud("INSERT INTO `product` 
           (`model_has_brand_id`,`colour_id`,`condition_id`,`title`,`description`,`price`,`qty`,`cost_colombo`,`cost_others`,`category_ca_id`,`Size_id`,`seller_nic`,`status_s_id`,`date_time`,`admin_status`) VALUES
-          ('" . $model_has_brand_data["id"] . "','" . $colour . "','" . $condition . "','" . $title . "','" . $desc . "','" . $price . "','" . $quentity . "','" . $colombo_cost . "','" . $other_cost . "','" . $category . "','1','" . $seller_nic . "','1','" . $date . "','1') ");
+          ('" . $model_has_brand_data["m_h_b_id"] . "','" . $colour . "','" . $condition . "','" . $title . "','" . $desc . "','" . $price . "','" . $quentity . "','" . $colombo_cost . "','" . $other_cost . "','" . $category . "','1','" . $seller_nic . "','1','" . $date . "','1') ");
 
         $product_id = Database::$connection->insert_id;
 

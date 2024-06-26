@@ -55,7 +55,7 @@ $seller_data = $seller_rs->fetch_assoc();
                                         <?php
                                         } else {
                                         ?>
-                                            <img src="resources/sellersub.jpg" id="viewImg" class="rounded-5 shadow mt-5 mb-3" height="250px" alt="" srcset="">
+                                            <img src="resources/noImage.jpg" id="viewImg" class="rounded-5 shadow mt-5 mb-3" height="250px" alt="" srcset="">
                                         <?php
                                         }
 
