@@ -115,6 +115,8 @@ if ($quentity == 1) {
 }
 // quentity
 
+echo($query);
+
 $product_rs = Database::Search($query);
 $product_num = $product_rs->num_rows;
 
